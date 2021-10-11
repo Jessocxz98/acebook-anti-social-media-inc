@@ -1,4 +1,5 @@
-# AceBook
+# AceBook --> Anti-social Media Inc
+Jessica, Sophie, Tomisin, Gianluca, Mabon, David and Paul!
 
 ## Quickstart
 
@@ -24,7 +25,31 @@ ExecJS::RuntimeUnavailable:
 
 Rails requires a Javascript runtime to work. The easiest way is to install Node by running `brew install node` - and then run `bundle exec rspec` again
 
-## Database Domain Modelling
+### MVP User stories
+```
+As a user
+So I can have my details saved
+I can sign up to Acebook
+
+As a user
+So I can access my Acebook session
+I can log in to Acebook
+
+As a user
+So I can get out of my Acebook session
+I can log out of Acebook
+
+As a user
+So I can navigate the website easily
+I can see and use a nav bar at the top of the page
+
+As a user
+So I can see what has been posted
+Posts appear with the newest post first
+```
+
+## MVP Database Domain Modelling
+Below we have modelled our databases and methods for the MVP.
 
 ![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image.png)
 
