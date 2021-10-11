@@ -23,3 +23,7 @@ ExecJS::RuntimeUnavailable:
  ```
 
 Rails requires a Javascript runtime to work. The easiest way is to install Node by running `brew install node` - and then run `bundle exec rspec` again
+
+## Database Domain Modelling
+
+![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image.png)
