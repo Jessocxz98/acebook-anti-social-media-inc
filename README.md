@@ -50,7 +50,6 @@ Posts appear with the newest post first
 ```
 
 ### Database Domain Modelling
-Below we have modelled our databases and methods for the MVP.
 
 ![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image.png)
 
