@@ -25,7 +25,8 @@ ExecJS::RuntimeUnavailable:
 
 Rails requires a Javascript runtime to work. The easiest way is to install Node by running `brew install node` - and then run `bundle exec rspec` again
 
-### MVP User stories
+## MVP
+### User stories
 ```
 As a user
 So I can have my details saved
@@ -48,12 +49,12 @@ So I can see what has been posted
 Posts appear with the newest post first
 ```
 
-## MVP Database Domain Modelling
+### Database Domain Modelling
 Below we have modelled our databases and methods for the MVP.
 
 ![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image.png)
 
 ![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image%20(1).png)
 
-## Wireframes
+### Wireframes
 ![Wireframes](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/Wireframes.png)
