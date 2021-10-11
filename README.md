@@ -27,4 +27,8 @@ Rails requires a Javascript runtime to work. The easiest way is to install Node 
 ## Database Domain Modelling
 
 ![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image.png)
+
 ![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image%20(1).png)
+
+## Wireframes
+![Wireframes]()
