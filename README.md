@@ -31,4 +31,4 @@ Rails requires a Javascript runtime to work. The easiest way is to install Node 
 ![Database domain Modelling](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/image%20(1).png)
 
 ## Wireframes
-![Wireframes]()
+![Wireframes](https://github.com/Jessocxz98/acebook-anti-social-media-inc/blob/main/app/assets/images/MVP/Wireframes.png)
