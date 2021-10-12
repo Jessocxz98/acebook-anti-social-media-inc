@@ -7,11 +7,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(post_params)
     if @user.save
-      flash[:notice] = 'Welcome to the app'
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome to Acebook, #{@user.username}. Your account has been successfully created."
       redirect_to posts_url
     else
-      redirect_to users_new_url
-      flash[:notice] = "Something wrong happened"
+      flash.now[:alert] = "Something wrong happened"
+      render 'new'
     end
   end
 
