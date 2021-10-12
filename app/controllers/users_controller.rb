@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'Welcome to the app'
       redirect_to posts_url
     else
-      redirect_to signup_url
+      redirect_to users_new_url
       flash[:notice] = "Something wrong happened"
     end
   end
