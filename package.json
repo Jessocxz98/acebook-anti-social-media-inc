@@ -1,5 +1,8 @@
 {
   "name": "acebook",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "popper.js": "^1.16.1"
+  }
 }
