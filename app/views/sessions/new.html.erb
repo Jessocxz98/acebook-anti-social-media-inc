@@ -1,17 +1,17 @@
 <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 
   <div>
-    <%= f.label :email %></br>
-    <%= f.email_field :email, placeholder: "Enter your email address" %>
+    <%= f.label :email, class: "form-label mt-3" %></br>
+    <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
   </div>
 
   <div>
-    <%= f.label :password %></br>
-    <%= f.password_field :password, placeholder: "Choose your password" %>
+    <%= f.label :password, class: "form-label mt-3" %></br>
+    <%= f.password_field :password, class: "form-control", placeholder: "Choose your password" %>
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit "Log in", class: 'btn btn-primary mt-3' %>
   </div>
 
 <% end %>

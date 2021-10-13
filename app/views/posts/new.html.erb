@@ -1,6 +1,9 @@
 <%= form_for @post do |form| %>
-  <%= form.label :message %>
-  <%= form.text_field :message %>
-
-  <%= form.submit "Submit" %>
+  <div>
+    <%= form.label :message, class: "form-label mt-3" %>
+    <%= form.text_field :message, class: "form-control" %>
+  </div>
+  <div>
+    <%= form.submit "Submit", class: 'btn btn-primary mt-3' %>
+  </div>
 <% end %>
