@@ -12,5 +12,5 @@
 //
 //= require rails-ujs
 //= require_tree .
-//import "bootstrap";
-//import "../stylesheets/application";
+import "../stylesheets/application";
+import '../node_modules/bootstrap/scss/bootstrap.scss';
