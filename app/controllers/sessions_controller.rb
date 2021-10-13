@@ -14,4 +14,10 @@ class SessionsController < ApplicationController
         render 'new'
     end
   end
+
+  def destroy
+    session[:user_id] = nil
+    flash[:notice] = "You are now logged out"
+    redirect_to login_url
+  end
 end
