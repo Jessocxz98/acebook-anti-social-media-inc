@@ -12,16 +12,5 @@
 //
 //= require rails-ujs
 //= require_tree .
-import "../stylesheets/application";
-import '../node_modules/bootstrap/scss/bootstrap.scss';
-
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
-
-import "bootstrap"
+// import "../stylesheets/application";
+// import '../node_modules/bootstrap/scss/bootstrap.scss';
