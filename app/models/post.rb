@@ -1,3 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :users
+
+  default_scope {order(created_at: :desc)}
+  belongs_to :user
 end
