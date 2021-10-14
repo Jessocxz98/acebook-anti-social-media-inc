@@ -85,7 +85,7 @@ INSERT INTO bookings (user_id, spaces_id, booking_date, accepted, booking_user_i
 DELETE FROM bookings WHERE bookings_id = 8;
 
 INSERT INTO users (username, email, password_digest, created_at, updated_at) VALUES ('david', 'david@ddavid.com','123456', '2021-10-12 09:26:02.871897', '2021-10-12 09:26:02.871897');
-INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message', '2021-10-12 09:26:02.871897', '2021-10-12 09:26:02.871897', '2');
+INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message', '2021-10-12 09:26:02.871897', '2021-10-12 09:26:02.871897', '4');
 INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message 1', '2021-10-12 09:26:03.871897', '2021-10-12 09:26:03.871897', '2');
 INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message 2', '2021-10-12 09:26:04.871897', '2021-10-12 09:26:04.871897', '2');
-INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message 3', '2021-10-12 09:26:05.871897', '2021-10-12 09:26:05.871897', '2');
+INSERT INTO posts (message, users_id ) VALUES ('this is a test message 3', '5');
