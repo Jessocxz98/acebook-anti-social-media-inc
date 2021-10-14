@@ -1,17 +1,24 @@
-<%= form_with(scope: :session, url: login_path, local: true) do |f| %>
+<h1 class="text-center">Log in</h1>
 
-  <div>
-    <%= f.label :email, class: "form-label mt-3" %></br>
-    <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
-  </div>
+<div class="container-mx-wth-500">
+  <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 
-  <div>
-    <%= f.label :password, class: "form-label mt-3" %></br>
-    <%= f.password_field :password, class: "form-control", placeholder: "Choose your password" %>
-  </div>
+    <div>
+      <%= f.label :email, class: "form-label mt-3" %></br>
+      <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
+    </div>
 
-  <div>
-    <%= f.submit "Log in", class: 'btn btn-primary mt-3' %>
-  </div>
+    <div>
+      <%= f.label :password, class: "form-label mt-3" %></br>
+      <%= f.password_field :password, class: "form-control", placeholder: "Choose your password" %>
+    </div>
 
-<% end %>
+    <div>
+      <%= f.submit "Log in", class: 'btn btn-primary mt-3' %>
+    </div>
+
+    <%= link_to "Sign up", new_user_path, class: "link-custom text-center mt-4" %>
+  <% end %>
+</div>
+
+

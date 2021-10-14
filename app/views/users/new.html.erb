@@ -1,22 +1,27 @@
-<%= form_with(model: @user, local: true) do |f| %>
+<h1 class="text-center">Sign up</h1>
 
-  <div>
-    <%= f.label :username, class: "form-label mt-3" %>
-    <%= f.text_field :username, class: "form-control", placeholder: "Choose your username" %>
-  </div>
+<div class="container-mx-wth-500">
+  <%= form_with(model: @user, local: true) do |f| %>
+  
+    <div>
+      <%= f.label :username, class: "form-label mt-3" %>
+      <%= f.text_field :username, class: "form-control", placeholder: "Choose your username" %>
+    </div>
+  
+    <div>
+      <%= f.label :email, class: "form-label mt-3" %></br>
+      <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
+    </div>
+  
+    <div>
+      <%= f.label :password, class: "form-label mt-3" %></br>
+      <%= f.password_field :password, class: "form-control", placeholder: "Choose your password" %>
+    </div>
+  
+    <div>
+      <%= f.submit "Sign up", class: 'btn btn-primary mt-3' %>
+    </div>
 
-  <div>
-    <%= f.label :email, class: "form-label mt-3" %></br>
-    <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
-  </div>
-
-  <div>
-    <%= f.label :password, class: "form-label mt-3" %></br>
-    <%= f.password_field :password, class: "form-control", placeholder: "Choose your password" %>
-  </div>
-
-  <div>
-    <%= f.submit "Sign up", class: 'btn btn-primary mt-3' %>
-  </div>
-
-<% end %>
+    <%= link_to "Log in", login_path, class: "link-custom text-center mt-4" %>
+  <% end %>
+</div>

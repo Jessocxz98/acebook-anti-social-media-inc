@@ -1,8 +1,18 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+body {
+  font-family: 'Ubuntu', sans-serif !important;
+}
 .container {
   margin-top: 2em;
 }
+.container-mx-wth-500 {
+  max-width: 500px;
+  margin: 0 auto;
+}
 .btn {
   width: 100%;
+}
+.link-custom {
+  display: grid;
 }

@@ -1,9 +1,12 @@
+<h1 class="text-center">Add post</h1>
+
 <%= form_for @post do |form| %>
   <div>
     <%= form.label :message, class: "form-label mt-3" %>
-    <%= form.text_field :message, class: "form-control" %>
+    <%= form.text_area :message, rows: 10, class: "form-control", placeholder: "Enter your post content" %>
+
   </div>
   <div>
-    <%= form.submit "Submit", class: 'btn btn-primary mt-3' %>
+    <%= form.submit "Add post", class: 'btn btn-primary mt-3' %>
   </div>
 <% end %>
