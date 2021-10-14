@@ -1,0 +1,91 @@
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    password VARCHAR(50));
+    email VARCHAR(100)
+);
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(50), email VARCHAR(100), password VARCHAR(250));
+CREATE TABLE spaces (
+    spaces_id INT GENERATED ALWAYS AS IDENTITY,
+    id INT,
+    space_name VARCHAR(255) NOT NULL,
+    space_description VARCHAR(255) NOT NULL,
+    price_per_night FLOAT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(spaces_id),
+    CONSTRAINT fk_id
+      FOREIGN KEY(id) 
+      REFERENCES users(id)
+);
+CREATE TABLE bookings (
+    bookings_id INT GENERATED ALWAYS AS IDENTITY,
+    spaces_id INT,
+    booking_from DATE,
+    booking_to DATE,
+    PRIMARY KEY(bookings_id),
+    CONSTRAINT fk_bookings_id
+      FOREIGN KEY(spaces_id) 
+      REFERENCES spaces(spaces_id)
+);
+REATE TABLE available_dates (
+    bookings_id INT GENERATED ALWAYS AS IDENTITY,
+    spaces_id INT,
+    available_from DATE,
+    available_to DATE,
+    PRIMARY KEY(bookings_id),
+    CONSTRAINT fk_bookings_id
+      FOREIGN KEY(spaces_id) 
+      REFERENCES spaces(spaces_id)
+);
+INSERT INTO available_dates (spaces_id, available_from, available_to, user_id) VALUES ('1', '01/09/2021', '30/09/2021','1');
+INSERT INTO available_dates (spaces_id, available_from, available_to, user_id) VALUES ('1', '01/12/2021', '30/12/2021','1');
+INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('A new Space', 'this is the description', '100');
+INSERT INTO users (name, email,password) VALUES ('david', 'david@david.com', '123456');
+SELECT space_name, price_per_night, available_from, available_to FROM bookings INNER JOIN spaces ON (spaces.spaces_id = bookings.spaces_id);
+ALTER DATABASE bnbapp RENAME TO bnb;
+SELECT
+    pg_terminate_backend (pid)
+FROM
+    pg_stat_activity
+WHERE
+    datname = 'bnbapp';
+TRUNCATE spaces RESTART IDENTITY;
+ALTER TABLE bookings
+  RENAME TO vailable_dates;
+ALTER TABLE bookings RENAME available_from TO booking_from;
+ALTER TABLE bookings RENAME available_to TO booking_to;
+ALTER TABLE bookings RENAME booking_to TO booking_date;
+ALTER TABLE bookings
+DROP COLUMN booking_user_id;
+SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '2021-09-10' AND available_to > '2021-09-10';
+SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '2021-11-10' AND available_to > '2021-11-10';
+ALTER TABLE bookings ADD COLUMN accepted BOOLEAN;
+ALTER TABLE bookings ADD COLUMN confirmed BOOLEAN;
+ALTER TABLE bookings ADD COLUMN confirmed BOOLEAN;
+SELECT * FROM bookings WHERE spaces_id = 1 AND booking_date = '2021-09-10' AND confirmed is NULL;
+SELECT * FROM bookings WHERE spaces_id = 1 AND booking_date = '2021-09-10' AND confirmed is NOT NULL;
+CREATE TABLE bookings (
+    bookings_id INT GENERATED ALWAYS AS IDENTITY,
+    spaces_id INT,
+    user_id INT,
+    booking_date DATE,
+    accepted BOOLEAN,
+    confirmed BOOLEAN,
+    PRIMARY KEY(bookings_id),
+    CONSTRAINT fk_bookings_id
+      FOREIGN KEY(spaces_id) 
+      REFERENCES spaces(spaces_id)
+);
+SELECT * FROM available_dates WHERE available_from <= '2021-10-15' AND available_to >= '2021-10-15';
+SELECT * FROM bookings WHERE
+UPDATE bookings SET confirmed = TRUE WHERE bookings_id = 7;
+ALTER TABLE bookings ADD COLUMN booking_user_id INT;
+TRUNCATE users, spaces, available_dates, bookings RESTART IDENTITY;
+INSERT INTO bookings (user_id, spaces_id, booking_date, accepted, booking_user_id) VALUES ('1','1','2021-09-13', TRUE , '1') RETURNING booking_date;
+DELETE FROM bookings WHERE bookings_id = 8;
+
+INSERT INTO users (username, email, password_digest, created_at, updated_at) VALUES ('david', 'david@ddavid.com','123456', '2021-10-12 09:26:02.871897', '2021-10-12 09:26:02.871897');
+INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message', '2021-10-12 09:26:02.871897', '2021-10-12 09:26:02.871897', '4');
+INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message 1', '2021-10-12 09:26:03.871897', '2021-10-12 09:26:03.871897', '2');
+INSERT INTO posts (message, created_at, updated_at, users_id ) VALUES ('this is a test message 2', '2021-10-12 09:26:04.871897', '2021-10-12 09:26:04.871897', '2');
+INSERT INTO posts (message, users_id ) VALUES ('this is a test message 3', '5');
