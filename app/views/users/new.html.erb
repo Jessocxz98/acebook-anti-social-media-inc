@@ -2,6 +2,11 @@
 
 <div class="container-mx-wth-500">
   <%= form_with(model: @user, local: true) do |f| %>
+
+    <div>
+      <%= f.label :avatar, class: "form-label mt-3" %></br>
+      <%= f.file_field :avatar, id: "avatar", class: "form-control"%>
+    </div>
   
     <div>
       <%= f.label :username, class: "form-label mt-3" %>

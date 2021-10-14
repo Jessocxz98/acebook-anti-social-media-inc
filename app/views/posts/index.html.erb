@@ -1,5 +1,7 @@
 <h1 class='text-center'>Your feed</h1>
 
+<image width="500px" src="<%=(url_for(current_user.avatar))%>">
+
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
 <% end %>
