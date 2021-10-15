@@ -1,12 +1,10 @@
 module ApplicationHelper
 
-  def avatar_display(size)
-    if current_user
-      if current_user.avatar.attached?
-	      image_tag current_user.avatar, style: "width: #{size}px; display: block"
-      else
-        image_tag "/app/assets/images/svg/default_avatar.svg", style: "width: #{size}px; display: block"
-      end
+  def avatar_display(user, size)
+    if user.avatar.attached?
+	    image_tag user.avatar, style: "width: #{size}px; display: block"
+    else
+      show_svg('default_avatar.svg')
     end
   end
 
