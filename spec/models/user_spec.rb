@@ -61,4 +61,10 @@ RSpec.describe User, type: :model do
       expect { User.find(user3.id) }.to raise_error ActiveRecord::RecordNotFound
     end
   end
+
+  describe 'check for image' do
+    it 'has a default avatar' do
+      user1 = User.create(username: "test", email: "test@example.com", password: "password")
+    end
+  end
 end
