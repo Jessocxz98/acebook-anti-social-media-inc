@@ -2,9 +2,7 @@
 
 <% @posts.each do |post| %>
   <% if post.image.attached? %>
-    <div class="img-post">
       <%= image_tag post.image, style: "width: 500px; display: block" %>
-    </div>
   <% end %>
   <p><%= post.message %></p>
   <div>
