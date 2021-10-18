@@ -4,12 +4,12 @@
   <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 
     <div>
-      <%= f.label :email, class: "form-label mt-3" %></br>
+      <%= f.label :email, class: "form-label mt-3" %>
       <%= f.email_field :email, class: "form-control", placeholder: "Enter your email address" %>
     </div>
 
     <div>
-      <%= f.label :password, class: "form-label mt-3" %></br>
+      <%= f.label :password, class: "form-label mt-3" %>
       <%= f.password_field :password, class: "form-control", placeholder: "Choose your password" %>
     </div>
 

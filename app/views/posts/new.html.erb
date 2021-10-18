@@ -2,6 +2,8 @@
 
 <%= form_for @post do |form| %>
   <div>
+    <%= form.label :image, class: "form-label mt-3" %>
+    <%= form.file_field :image, class: "image form-control"%>
     <%= form.label :message, class: "form-label mt-3" %>
     <%= form.text_area :message, rows: 10, class: "form-control", placeholder: "Enter your post content" %>
     <% if logged_in? %>
