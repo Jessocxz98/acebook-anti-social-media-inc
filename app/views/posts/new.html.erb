@@ -2,9 +2,13 @@
 
 <%= form_for @post do |form| %>
   <div>
+    <%= form.label :image, class: "form-label mt-3" %>
+    <%= form.file_field :image, class: "image form-control"%>
     <%= form.label :message, class: "form-label mt-3" %>
     <%= form.text_area :message, rows: 10, class: "form-control", placeholder: "Enter your post content" %>
-    <%= form.hidden_field :user_id, value: current_user.id %>
+    <% if logged_in? %>
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    <% end %>
 
   </div>
   <div>

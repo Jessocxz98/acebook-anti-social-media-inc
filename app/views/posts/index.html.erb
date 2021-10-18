@@ -1,7 +1,16 @@
 <h1 class='text-center'>Your feed</h1>
 
 <% @posts.each do |post| %>
+  <% if post.image.attached? %>
+      <%= image_tag post.image, style: "width: 500px; display: block" %>
+  <% end %>
   <p><%= post.message %></p>
+  <div>
+    <div class="img-min">
+      <%= avatar_display(post.user, 20) %>
+    </div>
+    <p><%= post.user.username %></p>
+  </div>
 <% end %>
 
 
