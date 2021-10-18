@@ -24,7 +24,7 @@
     <% end %>
 <% end %>
 
-<%= post.likes.count %>
+<%= pluralize(post.likes.count, "like") %>
 
 <% end %>
 
