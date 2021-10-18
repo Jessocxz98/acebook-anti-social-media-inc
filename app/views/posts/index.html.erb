@@ -5,6 +5,10 @@
       <%= image_tag post.image, style: "width: 500px; display: block" %>
   <% end %>
   <p><%= post.message %></p>
+  <%= render partial: "comments/form", locals: {post: post} %>
+  <div id='comments-<%= post.id %>'>
+    <%= render post.comments.order("created_at": :desc)%>
+ </div>
   <div>
     <div class="img-min">
       <%= avatar_display(post.user, 20) %>
