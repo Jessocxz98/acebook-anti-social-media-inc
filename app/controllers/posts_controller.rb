@@ -12,9 +12,16 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def like
+    @post = Post.all.find(params[:id])
+    Like.create(user_id: current_user.id, post_id: @post.id)
+    redirect_to posts_url
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:message, :image, :user_id)
   end
+
 end
