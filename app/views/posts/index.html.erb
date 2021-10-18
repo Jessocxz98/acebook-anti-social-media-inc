@@ -2,7 +2,7 @@
 
 <% @posts.each do |post| %>
   <p><%= post.message %></p>
-  <%= render partial: "comments/form" %>
+  <%= render partial: "comments/form", locals: {post: post} %>
 <% end %>
 
 

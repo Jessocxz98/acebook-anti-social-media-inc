@@ -3,9 +3,10 @@ Rails.application.routes.draw do
 
   root 'posts#index'
 
-  resources :posts
   resources :users
-  resources :comments
+  resources :posts do
+    resources :comments
+  end
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
