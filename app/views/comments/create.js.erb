@@ -1,0 +1,3 @@
+document.querySelector("#comments-<%=@post.id%>").innerHTML = `<%= render @post.comments.order('created_at': :desc) %>`;
+
+document.querySelector("#add-comment-box-<%=@post.id%>").value = ""
