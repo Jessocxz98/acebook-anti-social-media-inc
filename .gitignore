@@ -22,3 +22,5 @@
 /Rails.root.join("storage") %
 
 .byebug_history
+
+/config/master.key
