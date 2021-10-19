@@ -1,28 +1,37 @@
 <h1 class='text-center'>Your feed</h1>
 
 <% @posts.each do |post| %>
-  <% if post.image.attached? %>
-      <%= image_tag post.image, style: "width: 500px; display: block" %>
-  <% end %>
-  <p><%= post.message %></p>
-  <%= render partial: "comments/form", locals: {post: post} %>
-  <div id='comments-<%= post.id %>'>
-    <%= render post.comments.order("created_at": :desc)%>
- </div>
-  <div>
-    <div class="img-min">
-      <%= avatar_display(post.user, 20) %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="img-min">
+        <%= avatar_display(post.user, 40) %>
+      </div>
+      <%= post.user.username %>
     </div>
-    <p><%= post.user.username %></p>
-  </div>
+    
+    <% if post.image.attached? %>
+      <%= image_tag post.image, class: "card-img-top" %>
+    <% end %>
+    
+    <div class="card-body">
+      <!--<h5 class="card-title">Card title</h5>-->
+      <p class="card-text"><%= post.message %></p>
 
-  <% if logged_in? %>
-    <%= button_to "Like", post_likes_path(post), remote: true %>
-  <% end %>
+      <%= render partial: "comments/form", locals: {post: post} %>
+      <div id='comments-<%= post.id %>'>
+        <%= render post.comments.order("created_at": :desc)%>
+      </div>
+      
+      <% if logged_in? %>
+        <%= button_to "Like", post_likes_path(post), remote: true %>
+      <% end %>
 
-  <div id='likes-<%= post.id %>'>
-    <%= pluralize(post.likes.count, "like") %>
-  </div>
+      <div id='likes-<%= post.id %>'>
+        <%= pluralize(post.likes.count, "like") %>
+      </div>
+      <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %></small></p>
+    </div>
+</div>
 
 <% end %>
 

@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
-  before_action :set_post
-  before_action :set_like
+  
+  before_action :set_post, :set_like
 
   def create
     if liked?
@@ -26,6 +26,6 @@ class LikesController < ApplicationController
 
   def liked?
     Like.exists?(user_id: current_user.id, post_id: params[:post_id])
-    # @post.likes.find{|like| like.user_id == user.id}
   end
+
 end
