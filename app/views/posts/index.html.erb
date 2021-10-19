@@ -16,15 +16,13 @@
     <p><%= post.user.username %></p>
   </div>
 
-  <% if logged_in? %>
-    <% if post.liked?(current_user) %>
-      <%= button_to "Like", like_path(post), method: "put", disabled: true %>
-    <% else %>
-      <%= button_to "Like", like_path(post), method: "put" %>
-    <% end %>
-<% end %>
+  <div id='likes-<%= post.id %>'>
+    <%= pluralize(post.likes.count, "like") %>
+  </div>
 
-<%= pluralize(post.likes.count, "like") %>
+  <% if logged_in? %>
+    <%= button_to "Like", post_likes_path(post), remote: true %>
+  <% end %>
 
 <% end %>
 
