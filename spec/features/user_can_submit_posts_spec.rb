@@ -11,8 +11,6 @@ RSpec.feature "Timeline", type: :feature do
     visit "/posts"
     click_link "Add post"
     fill_in "Message", with: "Hello, world!"
-    # find("#post_user_id", visible: false).set(1)
-    # fill_in "User_id", with: 1
     click_button "Add post"
     expect(page).to have_content("Hello, world!")
   end
