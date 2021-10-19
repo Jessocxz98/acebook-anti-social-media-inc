@@ -5,12 +5,12 @@ Rails.application.routes.draw do
 
   resources :users
   resources :posts do
-    resources :comments
+    resources :comments, only: [:create]
+    resources :likes, only: [:create]
   end
 
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
-  put '/post/:id/like', to: 'posts#like', as: 'like'
   
 end

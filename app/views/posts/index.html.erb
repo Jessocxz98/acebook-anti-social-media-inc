@@ -21,14 +21,13 @@
         </div>
 
     <% if logged_in? %>
-      <% if post.liked?(current_user) %>
-        <%= button_to "Like", like_path(post), method: "put", disabled: true %>
-      <% else %>
-        <%= button_to "Like", like_path(post), method: "put" %>
-      <% end %>
-    <%  end %>
+      <%= button_to "Like", post_likes_path(post) %>
+    <% end %>
 
-    <%= pluralize(post.likes.count, "like") %>
+    
+    <div id="likes-<%=post.id%>">
+      <%= pluralize(post.likes.count, "like") %>
+    </div>
 
       <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %></small></p>
     </div>
