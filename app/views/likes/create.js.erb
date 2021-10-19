@@ -1,1 +1,2 @@
-document.querySelector("#likes-<%=@post.id%>").innerHTML = '<%= pluralize(@post.likes.count, "like") %>';
+document.querySelector("#likes-<%=@post.id%>").innerHTML = "<%= pluralize(@post.likes.count, "like") %>";
+

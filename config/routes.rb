@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :posts do
-    resources :comments, only: [:create]
     resources :likes, only: [:create]
+    resources :comments, only: [:create]
   end
 
   get 'login', to: 'sessions#new'
