@@ -4,8 +4,4 @@ class Post < ApplicationRecord
   has_many :comments
   has_one_attached :image
   has_many :likes
-  
-  def liked?(user)
-    !!self.likes.find{|like| like.user_id == user.id}
-  end
 end
