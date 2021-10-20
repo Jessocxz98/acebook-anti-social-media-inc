@@ -16,6 +16,21 @@ body {
 .link-custom {
   display: grid;
 }
-.img-min {
+.grid-image {
   width: 40px !important;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+
+// .flex-child {
+//   flex: 1;
+//   border: 2px solid yellow;
+// }
+
+// .flex-child:first-child {
+//   margin-right: 20px;
+// }

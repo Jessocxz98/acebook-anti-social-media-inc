@@ -3,10 +3,14 @@
 <% @posts.each do |post| %>
   <div class="card mb-3">
     <div class="card-body">
-      <div class="img-min">
-        <%= avatar_display(post.user, 40) %>
+      <div class ="grid-container">
+        <div class="grid-image">
+          <%= avatar_display(post.user, 40) %>
+        </div>
+        <div class="grid-name">
+        <%= post.user.username %>
+        </div>
       </div>
-      <%= post.user.username %>
     </div>
     
     <% if post.image.attached? %>
