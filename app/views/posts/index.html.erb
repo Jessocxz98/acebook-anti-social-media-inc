@@ -16,8 +16,8 @@
     <div class="card-body">
       <!--<h5 class="card-title">Card title</h5>-->
       <p class="card-text"><%= post.message %></p>
-
       <%= render partial: "comments/form", locals: {post: post} %>
+      
       <div id='comments-<%= post.id %>'>
         <%= render post.comments.order("created_at": :desc)%>
       </div>
