@@ -6,7 +6,7 @@ RSpec.feature "Timeline", type: :feature do
     click_link "Add post"
     fill_in "Message", with: "Bob's your uncle!"
     click_button "Add post"
-    first(".comment-form").fill_in "comment[content]", with: "and this is a comment"
+    fill_in "comment[content]", with: "and this is a comment"
     click_button "Add comment"
     expect(page).to have_content("and this is a comment")
   end

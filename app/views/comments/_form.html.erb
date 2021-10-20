@@ -1,12 +1,10 @@
-<div class="comment-form" >
-  <%= form_with model: [ post, post.comments.build ], local: false do |form| %>
-    <div>
-      <%= form.text_field :content, id:"add-comment-box-#{post.id}", placeholder: "Add comment here..." %>
-      <%= form.hidden_field :user_id, value: current_user.id if current_user%>
-    </div>
-    
-    <div>
-      <%= form.submit "Add comment" %>
-    </div>
-  <% end %>
-</div>
+<%= form_with model: [ post, post.comments.build ], local: false do |form| %>
+  <div>
+    <%= form.text_field :content, id:"add-comment-box-#{post.id}", placeholder: "Add comment here..." %>
+    <%= form.hidden_field :user_id, value: current_user.id if current_user%>
+  </div>
+  
+  <div>
+    <%= form.submit "Add comment" %>
+  </div>
+<% end %>
