@@ -41,11 +41,20 @@ body {
   object-fit: scale-down;
 }
 
-// .comment-like-container {
-//   display: grid;
-//   grid-template-rows: repeat(4, 1fr);
-// //grid-template-columns:
-// }
+.comment-like-container {
+   display: grid;
+   grid-template-rows: auto;
+   grid-template-columns: 1fr 1fr;
+//grid-template-columns:
+}
+
+.grid-comments-form { 
+  grid-column: span 2;
+}
+
+.grid-comments-view {
+  grid-column: span 2;
+}
 
 // .flex-child {
 //   flex: 1;
