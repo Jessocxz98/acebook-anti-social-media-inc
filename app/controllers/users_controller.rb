@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
-    @posts = @user.posts
+    @posts = @user.posts << Post.where(wall: @user.id)
     @post = Post.new
   end
 

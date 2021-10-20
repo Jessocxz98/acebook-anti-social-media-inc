@@ -5,11 +5,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    redirect_to posts_url
+    if !!@post.wall
+      redirect_to user_path(@post.wall)
+    else
+      redirect_to posts_url
+    end
   end
 
   def index
-    @posts = Post.all
+    @posts = Post.where(wall: nil)
   end
 
   private
@@ -17,5 +21,4 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:message, :image, :user_id, :wall)
   end
-
 end
