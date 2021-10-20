@@ -1,66 +1,125 @@
 @import 'bootstrap/dist/css/bootstrap';
 
+/* Generics */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Ubuntu', sans-serif !important;
 }
+
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+/* Card */
+
+.card {
+  width: 100%;
+}
+
 .container {
   margin-top: 2em;
 }
-.container-mx-wth-500 {
-  max-width: 500px;
-  margin: 0 auto;
-}
-.btn {
-  width: 100%;
-}
-.link-custom {
-  display: grid;
-}
-.page-grid {
-  padding-top: 10px;
-  padding-left: 25%;
-  padding-right: 25%;
+
+/* Card Top */
+
+.card-body.top {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  padding: 0 0.9rem;
+}
+
+.flex-left-top {
+  display: flex;
+  flex: 1 1 6%;
   justify-content: center;
   align-items: center;
 }
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
+
+.flex-right-top {
+  flex: 1 1 96%;
+  padding: 10px;
 }
+
+.card-body.top p {
+  font-weight: 500;
+}
+
+.flex-right-top p.text-muted {
+  font-weight: 100;
+  font-size: 13px;
+}
+
 .grid-image {
   width: 40px !important;
 }
-.grid-name {
-  grid-column: span 6;
+
+/* Card Image */
+
+img.card-img-top {
+  border-radius: 0;
+  margin-bottom: 0.9rem;
 }
-.card-img-top {
-  float: left;
-  object-fit: scale-down;
+
+/* Card Bottom */
+
+.card-body.bottom {
+  padding: 0 0.9rem 0.9rem;
+}
+
+.card-text {
+  font-weight: 300;
 }
 
 .comment-like-container {
-   display: grid;
-   grid-template-rows: auto;
-   grid-template-columns: 1fr 1fr;
-//grid-template-columns:
+  display: flex;
+  flex-direction: row;
+  margin: 0.9rem 0;
 }
 
-.grid-comments-form { 
-  grid-column: span 2;
+.flex-likes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+  flex: 1 1 50%;
+  padding: 6px
 }
 
-.grid-comments-view {
-  grid-column: span 2;
+.flex-comments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1;
+  flex: 1 1 50%;
+  padding: 6px
 }
 
-// .flex-child {
-//   flex: 1;
-//   border: 2px solid yellow;
-// }
+.comment-like-container button {
+  background-color: #fff;
+  border: 0;
+  padding: 4px 40px;
+  border-radius: 6px;
+  color: #5c5c5c;
+}
 
-// .flex-child:first-child {
-//   margin-right: 20px;
-// }
+button:hover {
+  background-color: #efefef;
+}
+
+button > .fa-thumbs-up {
+  margin-right: 4px;
+}
+
+button > .fa-comment-alt {
+  margin-right: 6px;
+}
