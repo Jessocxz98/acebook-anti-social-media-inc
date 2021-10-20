@@ -9,3 +9,7 @@ def signup(username)
   fill_in "password", with: "123456"
   click_button "Sign up"
 end
+
+def logout()
+  click_link "Log out"
+end
