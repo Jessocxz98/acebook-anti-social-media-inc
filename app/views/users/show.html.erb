@@ -1,0 +1,18 @@
+<h1>profile page for <%= @user.username %> </h1>
+
+<% @posts.each do |post| %>
+  <%= post.message %>
+  <% if post.image.attached? %>
+    <%= image_tag post.image, class: "card-img-top" %>
+  <% end %>
+<% end%>
+
+
+<%= render 'posts/newpost' %>
+
+
+
+<form>
+  <input type="hidden" value="<%= @user.id %>">
+  <input type="button" value="Add new post on this wall">
+</form>
