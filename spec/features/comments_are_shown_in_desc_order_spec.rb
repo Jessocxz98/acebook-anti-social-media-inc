@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Timeline", type: :feature do
-  scenario "Can submit posts and view them" do
+  scenario "commenst are shown in desc order" do
     signup("Bob")
     click_link "Add post"
     fill_in "Message", with: "Bob's your uncle!"
