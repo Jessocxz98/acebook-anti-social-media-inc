@@ -22,19 +22,23 @@
       <div class="card-body">
         <!--<h5 class="card-title">Card title</h5>-->
         <p class="card-text"><%= post.message %></p>
-              
-        <% if logged_in? %>
-          <%= button_to "Like", post_likes_path(post), remote: true %>
-        <% end %>
 
-        <div id='likes-<%= post.id %>'>
-          <%= pluralize(post.likes.count, "like") %>
-        </div>
-      
+        <div class="comment-like-container">      
+          <% if logged_in? %>
+            <%= button_to "Like", post_likes_path(post), remote: true %>
+          <% end %>
 
-        <%= render partial: "comments/form", locals: {post: post} %>
-        <div id='comments-<%= post.id %>'>
-          <%= render post.comments.order("created_at": :desc) %>
+          <div id='likes-<%= post.id %>'>
+            <%= pluralize(post.likes.count, "like") %>
+          </div>
+        
+          <div id='comments-count-<%= post.id %>'>
+            <%= pluralize(post.comments.count, "comments") %>
+          </div>
+          <%= render partial: "comments/form", locals: {post: post} %>
+          <div id='comments-<%= post.id %>'>
+            <%= render post.comments.order("created_at": :desc) %>
+          </div>
         </div>
       </div>
     </div>
