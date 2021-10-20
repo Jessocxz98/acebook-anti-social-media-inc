@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :check_login, except: [:index]
+
   def new
     @post = Post.new
   end
@@ -20,5 +22,9 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:message, :image, :user_id, :wall)
+  end
+
+  def check_login
+    redirect_to login_url if !logged_in?
   end
 end

@@ -6,7 +6,7 @@
       <div class="img-min">
         <%= avatar_display(post.user, 40) %>
       </div>
-      <%= post.user.username %>
+      <%= link_to "#{post.user.username}", user_path(post.user) %>
     </div>
     
     <% if post.image.attached? %>

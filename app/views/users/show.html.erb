@@ -1,15 +1,12 @@
 <h1>profile page for <%= @user.username %> </h1>
 
-<%= current_user.id %>
-<%= @user.id %>
-
 <% @posts.each do |post| %>
   <div class="card mb-3">
     <div class="card-body">
       <div class="img-min">
         <%= avatar_display(post.user, 40) %>
       </div>
-      <%= post.user.username %>
+      <%= link_to "#{post.user.username}", user_path(post.user) %>
     </div>
     
     <% if post.image.attached? %>
