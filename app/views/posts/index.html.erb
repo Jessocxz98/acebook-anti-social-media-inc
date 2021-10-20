@@ -1,41 +1,44 @@
 <h1 class='text-center'>Your feed</h1>
+<div class="page-grid">
 
-<% @posts.each do |post| %>
-  <div class="card mb-3">
-    <div class="card-body">
-      <div class ="grid-container">
-        <div class="grid-image">
-          <%= avatar_display(post.user, 40) %>
-        </div>
-        <div class="grid-name">
-        <%= post.user.username %>
-        <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %></small></p>
+  <% @posts.each do |post| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class ="grid-container">
+          <div class="grid-image">
+            <%= avatar_display(post.user, 40) %>
+          </div>
+          <div class="grid-name">
+          <%= post.user.username %>
+          <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %></small></p>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <% if post.image.attached? %>
-      <%= image_tag post.image, class: "card-img-top" %>
-    <% end %>
-    
-    <div class="card-body">
-      <!--<h5 class="card-title">Card title</h5>-->
-      <p class="card-text"><%= post.message %></p>
-            
-      <% if logged_in? %>
-        <%= button_to "Like", post_likes_path(post), remote: true %>
+      
+      <% if post.image.attached? %>
+        <%= image_tag post.image, class: "card-img-top" %>
       <% end %>
+      
+      <div class="card-body">
+        <!--<h5 class="card-title">Card title</h5>-->
+        <p class="card-text"><%= post.message %></p>
+              
+        <% if logged_in? %>
+          <%= button_to "Like", post_likes_path(post), remote: true %>
+        <% end %>
 
-      <div id='likes-<%= post.id %>'>
-        <%= pluralize(post.likes.count, "like") %>
-      </div>
-    
+        <div id='likes-<%= post.id %>'>
+          <%= pluralize(post.likes.count, "like") %>
+        </div>
+      
 
-      <%= render partial: "comments/form", locals: {post: post} %>
-      <div id='comments-<%= post.id %>'>
-        <%= render post.comments.order("created_at": :desc)%>
+        <%= render partial: "comments/form", locals: {post: post} %>
+        <div id='comments-<%= post.id %>'>
+          <%= render post.comments.order("created_at": :desc)%>
+        </div>
       </div>
     </div>
+  </div>
 </div>
 
 <% end %>
