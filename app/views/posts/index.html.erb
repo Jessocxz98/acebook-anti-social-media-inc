@@ -10,6 +10,7 @@
         <div class="grid-name">
         <%= post.user.username %>
         </div>
+        <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %></small></p>
       </div>
     </div>
     
@@ -20,12 +21,7 @@
     <div class="card-body">
       <!--<h5 class="card-title">Card title</h5>-->
       <p class="card-text"><%= post.message %></p>
-
-      <%= render partial: "comments/form", locals: {post: post} %>
-      <div id='comments-<%= post.id %>'>
-        <%= render post.comments.order("created_at": :desc)%>
-      </div>
-      
+            
       <% if logged_in? %>
         <%= button_to "Like", post_likes_path(post), remote: true %>
       <% end %>
@@ -33,7 +29,12 @@
       <div id='likes-<%= post.id %>'>
         <%= pluralize(post.likes.count, "like") %>
       </div>
-      <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %></small></p>
+    
+
+      <%= render partial: "comments/form", locals: {post: post} %>
+      <div id='comments-<%= post.id %>'>
+        <%= render post.comments.order("created_at": :desc)%>
+      </div>
     </div>
 </div>
 
