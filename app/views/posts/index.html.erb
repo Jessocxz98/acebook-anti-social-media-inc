@@ -10,7 +10,7 @@
           </div>
           <div class="grid-name">
           <%= post.user.username %>
-          <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %></small></p>
+          <p class="card-text"><small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small></p>
           </div>
         </div>
       </div>
@@ -34,13 +34,11 @@
 
         <%= render partial: "comments/form", locals: {post: post} %>
         <div id='comments-<%= post.id %>'>
-          <%= render post.comments.order("created_at": :desc)%>
+          <%= render post.comments.order("created_at": :desc) %>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
-
-<% end %>
 
 

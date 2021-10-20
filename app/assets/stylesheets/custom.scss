@@ -36,6 +36,12 @@ body {
 .grid-name {
   grid-column: span 6;
 }
+.card-img-top {
+  float: left;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+}
 
 // .flex-child {
 //   flex: 1;
