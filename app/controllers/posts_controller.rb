@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    store_location
     @posts = Post.where(wall: nil)
   end
 
@@ -54,5 +55,9 @@ class PostsController < ApplicationController
     else
       redirect_to posts_url
     end
+  end
+
+  def store_location
+    session[:return_to] = request.fullpath
   end
 end
