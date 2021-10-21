@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :check_login, except: [:index]
+  before_action :set_post, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -18,6 +19,19 @@ class PostsController < ApplicationController
     @posts = Post.where(wall: nil)
   end
 
+  def edit
+  end
+
+  def update
+    @post.update(post_params)
+    redirect_to posts_url
+  end
+
+  def destroy
+    @post.destroy
+    redirect_to posts_url
+  end
+
   private
 
   def post_params
@@ -26,5 +40,9 @@ class PostsController < ApplicationController
 
   def check_login
     redirect_to login_url if !logged_in?
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end
