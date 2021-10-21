@@ -25,6 +25,9 @@
           <p><%= post.user.username %></p>
           <p class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</p>
         </div>
+        <% if logged_in? && post.user.id == current_user.id %>
+          <%= link_to "Edit Post", edit_post_path(post.id) %>
+        <% end %>
       </div>
 
           <!-- CARD IMAGE -->

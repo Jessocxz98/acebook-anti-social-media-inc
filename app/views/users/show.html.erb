@@ -1,0 +1,44 @@
+<h1><%= @user.username %>'s profile.</h1>
+
+<% @posts.each do |post| %>
+  <div class="card mb-3">
+    <div class="card-body">
+      <div class="img-min">
+        <%= avatar_display(post.user, 40) %>
+      </div>
+      <%= link_to "#{post.user.username}", user_path(post.user) %>
+      <p class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</p>
+      <% if post.user.id == current_user.id %>
+        <%= link_to "Edit Post", edit_post_path(post.id) %>
+      <% end %>
+    </div>
+    
+    <% if post.image.attached? %>
+      <%= image_tag post.image, class: "card-img-top" %>
+    <% end %>
+    
+    <div class="card-body">
+      <!--<h5 class="card-title">Card title</h5>-->
+      <p class="card-text"><%= post.message %></p>
+      
+      <%= render partial: "comments/form", locals: {post: post} %>
+
+      <div id='comments-<%= post.id %>'>
+        <%= render post.comments.order("created_at": :desc)%>
+      </div>
+      
+      <% if logged_in? %>
+        <%= button_to "Like", post_likes_path(post), remote: true %>
+      <% end %>
+
+      <div id='likes-<%= post.id %>'>
+        <%= pluralize(post.likes.count, "like") %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<%= render 'posts/newpost' %>
+
+
