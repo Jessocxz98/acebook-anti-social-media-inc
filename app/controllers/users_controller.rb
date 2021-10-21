@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
+  before_action :check_login, only: [:show]
 
   def new
     @user = User.new
+  end
+
+  def show
+    @user = User.find_by(id: params[:id])
+    @posts = (@user.posts + Post.where(wall: @user.id).sort_by { |post| post.created_at }).reverse
+    @post = Post.new
   end
 
   def create
@@ -17,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @user = User.all
+    @users = User.all
   end
 
   private
@@ -26,4 +33,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password, :avatar)
   end
 
+  def check_login
+    redirect_to login_url if !logged_in?
+  end
 end
