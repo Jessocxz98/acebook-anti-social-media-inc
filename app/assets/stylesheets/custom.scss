@@ -79,8 +79,6 @@ img.card-img-top {
 
 /* Card Bottom */
 
-
-
 .card-body.bottom {
   padding: 0 0.9rem 0.9rem;
 }
@@ -102,7 +100,7 @@ img.card-img-top {
   flex: 1 1 50%;
   border-top: 1px solid #d1d1d1;
   border-bottom: 1px solid #d1d1d1;
-  padding: 4px
+  padding: 4px;
 }
 
 .flex-comments {
@@ -112,7 +110,7 @@ img.card-img-top {
   border-top: 1px solid #d1d1d1;
   border-bottom: 1px solid #d1d1d1;
   flex: 1 1 50%;
-  padding: 4px
+  padding: 4px;
 }
 
 .button_to {
@@ -196,12 +194,12 @@ button > .fa-comment-alt {
 }
 
 #add-comment-button i {
-  color:#858585;
+  color: #858585;
   transition: color 0.2s ease-in;
 }
 
 #add-comment-button i:hover {
-  color:#2b2b2b;
+  color: #2b2b2b;
 }
 
 /* Card Bottom - View Comment */
@@ -210,9 +208,13 @@ button > .fa-comment-alt {
   margin: 2px 0;
 }
 
+.comments-count {
+  cursor: pointer;
+}
+
 .flex-comment-box {
   display: flex;
-  margin: 12px 0
+  margin: 12px 0;
 }
 
 .flex-comment-avatar {
@@ -232,4 +234,16 @@ button > .fa-comment-alt {
 
 .avatar-sm {
   width: 26px;
+}
+
+.show {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
 }

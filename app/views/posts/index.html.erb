@@ -57,14 +57,14 @@
           <!-- Comment button -->
 
           <div class="flex-comments">
-            <button id="comment-button">
+            <button class="comment-button", id="comment-button">
               <i class="far fa-comment-alt"></i> Comment
             </button>
           </div>
 
         </div>
           
-        <div class="flex-comment-form">
+        <div class="flex-comment-form hidden">
 
           <!-- Comment form -->
 
@@ -90,7 +90,7 @@
         </div>
 
         <div class="flex-comment-view">
-          <div class="comment-box" id='comments-<%= post.id %>'>
+          <div class="comment-box hidden" id='comments-<%= post.id %>'>
             <%= render post.comments.order("created_at": :desc) %>
           </div>
         </div>
@@ -99,7 +99,7 @@
               <%= pluralize(post.likes.count, "like") %>
             </div>
           
-            <div id='comments-count-<%= post.id %>'>
+            <div class='comments-count', id='comments-count-<%= post.id %>'>
               <%= pluralize(post.comments.count, "comments") %>
             </div>
       </div>

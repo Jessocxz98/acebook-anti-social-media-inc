@@ -15,5 +15,39 @@
 // import "../stylesheets/application";
 // import '../node_modules/bootstrap/scss/bootstrap.scss';
 
+document.addEventListener('DOMContentLoaded', () => {
+  const commentButtons = document.querySelectorAll('.comment-button');
+  const commentsCount = document.querySelectorAll('.comments-count');
+  const commentForms = document.querySelectorAll('.flex-comment-form');
+  const comments = document.querySelectorAll('.comment-box');
 
-document.addEventListener('DOMContentLoaded', () => {});
+  for (let i = 0; i < commentButtons.length; i++) {
+    commentButtons[i].addEventListener('click', (event) => {
+      if (commentForms[i].classList.contains('visible')) {
+        commentForms[i].classList.remove('visible');
+        comments[i].classList.remove('visible');
+      } else {
+        commentForms[i].classList.add('visible');
+        comments[i].classList.add('visible');
+      }
+    });
+  }
+
+  for (let i = 0; i < commentButtons.length; i++) {
+    commentsCount[i].addEventListener('click', (event) => {
+      if (commentForms[i].classList.contains('visible')) {
+        commentForms[i].classList.remove('visible');
+        comments[i].classList.remove('visible');
+      } else {
+        commentForms[i].classList.add('visible');
+        comments[i].classList.add('visible');
+      }
+    });
+  }
+  // .addEventListener('click', () => {
+  //   console.log('good');
+  // document.getElementById(
+  //   `#flex-comment-form-${event.target.id}`
+  // ).custom.display = 'block';
+  // });
+});
