@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
+  
+  before do
+    allow_any_instance_of(ApplicationController).to receive(:logged_in?).and_return(true)
+  end
   describe "GET /new " do
     it "responds with 200" do
       get :new
