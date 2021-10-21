@@ -20,6 +20,10 @@ class PostsController < ApplicationController
   end
 
   def edit
+    if current_user.id != @post.user.id
+      flash[:alert] = "Stop that. You're not allowed to edit someone else's post."
+      redirect_to posts_url
+    end
   end
 
   def update
