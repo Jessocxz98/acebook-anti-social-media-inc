@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @submit = "Add post"
   end
 
   def create
@@ -16,11 +17,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @wall
     if current_user.id != @post.user.id
       flash[:alert] = "Stop that! You're not allowed to edit someone else's post..."
       redirect_to posts_url
     end
+    @submit = "Confirm edit"
   end
 
   def update

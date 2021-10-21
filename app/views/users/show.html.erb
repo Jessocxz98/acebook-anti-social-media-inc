@@ -1,5 +1,5 @@
 <h1><%= @user.username %>'s profile.</h1>
-
+<%= @posts %>
 <% @posts.each do |post| %>
   <div class="card mb-3">
     <div class="card-body">
@@ -34,8 +34,7 @@
         <%= pluralize(post.likes.count, "like") %>
       </div>
     </div>
-</div>
-
+  </div>
 <% end %>
 
 
