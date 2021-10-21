@@ -8,11 +8,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
-    if !!@post.wall
-      redirect_to user_path(@post.wall)
-    else
-      redirect_to posts_url
-    end
+    correct_redirect
   end
 
   def index
@@ -20,15 +16,16 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @wall
     if current_user.id != @post.user.id
-      flash[:alert] = "Stop that. You're not allowed to edit someone else's post."
+      flash[:alert] = "Stop that! You're not allowed to edit someone else's post..."
       redirect_to posts_url
     end
   end
 
   def update
     @post.update(post_params)
-    redirect_to posts_url
+    correct_redirect
   end
 
   def destroy
@@ -48,5 +45,13 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def correct_redirect
+    if !!@post.wall
+      redirect_to user_path(@post.wall)
+    else
+      redirect_to posts_url
+    end
   end
 end
