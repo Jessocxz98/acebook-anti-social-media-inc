@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :posts
-  has_many :comments
-  has_one_attached :avatar
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_one_attached :avatar, dependent: :destroy
   has_secure_password
 
   VALID_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
