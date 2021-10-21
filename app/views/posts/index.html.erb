@@ -1,7 +1,6 @@
 <h1 class='text-center'>Your feed</h1>
 <div class="page-grid">
 
-
   <% @posts.each do |post| %>
     <div class="card mb-3 mt-4">
       <div class="card-body top">
@@ -14,6 +13,9 @@
           <p><%= post.user.username %></p>
           <p class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</p>
         </div>
+        <% if logged_in? && post.user.id == current_user.id %>
+          <%= link_to "Edit Post", edit_post_path(post.id) %>
+        <% end %>
       </div>
       
       <% if post.image.attached? %>
