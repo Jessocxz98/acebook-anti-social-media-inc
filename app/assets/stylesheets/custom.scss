@@ -13,10 +13,10 @@ body {
 }
 
 p {
-  margin: 0 !important;
-  padding: 0 !important;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
 }
-
 
 /* Card */
 
@@ -26,6 +26,11 @@ p {
 
 .container {
   margin-top: 2em;
+}
+
+.page-grid {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Card Top */
@@ -61,6 +66,10 @@ p {
   width: 40px !important;
 }
 
+.flex-right-top p {
+  margin-bottom: 0;
+}
+
 /* Card Image */
 
 img.card-img-top {
@@ -69,6 +78,8 @@ img.card-img-top {
 }
 
 /* Card Bottom */
+
+
 
 .card-body.bottom {
   padding: 0 0.9rem 0.9rem;
@@ -88,10 +99,10 @@ img.card-img-top {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex: 1 1 50%;
   border-top: 1px solid #d1d1d1;
   border-bottom: 1px solid #d1d1d1;
-  flex: 1 1 50%;
-  padding: 6px
+  padding: 4px
 }
 
 .flex-comments {
@@ -101,18 +112,33 @@ img.card-img-top {
   border-top: 1px solid #d1d1d1;
   border-bottom: 1px solid #d1d1d1;
   flex: 1 1 50%;
-  padding: 6px
+  padding: 4px
 }
 
-.comment-like-container button {
+.button_to {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 50%;
+}
+
+#like-button,
+#comment-button {
+  font-size: 14px;
+  display: flex;
+  flex: 1 1 50%;
+  align-items: center;
+  justify-content: center;
   background-color: #fff;
   border: 0;
   padding: 4px 40px;
   border-radius: 6px;
   color: #5c5c5c;
+  transition: background-color 0.2s ease-in;
 }
 
-button:hover {
+#like-button:hover,
+#comment-button:hover {
   background-color: #efefef;
 }
 
@@ -122,4 +148,88 @@ button > .fa-thumbs-up {
 
 button > .fa-comment-alt {
   margin-right: 6px;
+}
+
+/* Card Bottom - Add Comment */
+
+.flex-comment-form {
+  margin-bottom: 0.5rem;
+}
+
+.flex-add-comment {
+  display: flex;
+  flex-direction: row;
+}
+
+#add-comment-field {
+  display: flex;
+  flex: 1 1 88%;
+  width: 100%;
+  border: 0;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+#add-comment-field input {
+  display: flex;
+  flex: 1 1 88%;
+  width: 100%;
+  padding: 6px 14px 5px;
+  border: 0;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+#add-comment-field input:focus {
+  border: 0;
+  outline: none;
+}
+
+#add-comment-button,
+#add-comment-button input {
+  display: flex;
+  flex: 1 1 2%;
+  border: 0;
+  padding: 6px 8px 6px 6px;
+}
+
+#add-comment-button i {
+  color:#858585;
+  transition: color 0.2s ease-in;
+}
+
+#add-comment-button i:hover {
+  color:#2b2b2b;
+}
+
+/* Card Bottom - View Comment */
+
+.comment-box p {
+  margin: 2px 0;
+}
+
+.flex-comment-box {
+  display: flex;
+  margin: 12px 0
+}
+
+.flex-comment-avatar {
+  display: flex;
+  flex: 1 1 8%;
+  align-items: center;
+}
+
+.flex-comment-content {
+  display: flex;
+  flex: 1 1 96%;
+}
+
+.flex-comment-content p {
+  padding: 2px 10px;
+}
+
+.avatar-sm {
+  width: 26px;
 }
