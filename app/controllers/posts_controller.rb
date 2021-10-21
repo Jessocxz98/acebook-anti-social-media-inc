@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url
+    redirect_to session[:return_to]
   end
 
   private

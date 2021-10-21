@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @posts = (@user.posts + Post.where(wall: @user.id).sort_by { |post| post.created_at }).reverse.uniq
     @post = Post.new
+    @submit = "Add post"
+    store_location
   end
 
   def create
@@ -35,5 +37,9 @@ class UsersController < ApplicationController
 
   def check_login
     redirect_to login_url if !logged_in?
+  end
+
+  def store_location
+    session[:return_to] = request.fullpath
   end
 end
