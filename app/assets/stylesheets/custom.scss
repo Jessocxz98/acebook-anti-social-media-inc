@@ -236,8 +236,12 @@ button > .fa-comment-alt {
   width: 26px;
 }
 
-.show {
-  display: none;
+.show-more,
+.show-less {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .hidden {

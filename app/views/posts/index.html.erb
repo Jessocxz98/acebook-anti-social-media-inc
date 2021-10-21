@@ -89,19 +89,33 @@
           <% end %>
         </div>
 
-        <div class="flex-comment-view">
-          <div class="comment-box hidden" id='comments-<%= post.id %>'>
-            <%= render post.comments.order("created_at": :desc) %>
+        <div class="flex-comment-view top-comments hidden", id="top-comments">
+          <div class="comment-box" id='comments-<%= post.id %>'>
+            <%= render post.comments.order("created_at": :desc).limit(3) %>
           </div>
+          <a class="show-more">
+            Show all comments
+          </a>
         </div>
 
-            <div id='likes-<%= post.id %>'>
-              <%= pluralize(post.likes.count, "like") %>
-            </div>
-          
-            <div class='comments-count', id='comments-count-<%= post.id %>'>
-              <%= pluralize(post.comments.count, "comments") %>
-            </div>
+         <div class="flex-comment-view all-comments hidden", id="all-comments">
+          <div class="comment-box" id='comments-<%= post.id %>'>
+            <%= render post.comments.order("created_at": :desc) %>
+          </div>
+          <a class="show-less">
+            Show less
+          </a>
+        </div>
+
+        
+
+        <div id='likes-<%= post.id %>'>
+          <%= pluralize(post.likes.count, "like") %>
+        </div>
+      
+        <div class='comments-count', id='comments-count-<%= post.id %>'>
+          <%= pluralize(post.comments.count, "comments") %>
+        </div>
       </div>
     </div>
   <% end %>

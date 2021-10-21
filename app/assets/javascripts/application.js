@@ -20,27 +20,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const commentsCount = document.querySelectorAll('.comments-count');
   const commentForms = document.querySelectorAll('.flex-comment-form');
   const comments = document.querySelectorAll('.comment-box');
+  const topComments = document.querySelectorAll('.top-comments');
+  const allComments = document.querySelectorAll('.all-comments');
+  const showMore = document.querySelectorAll('.show-more');
+  const showLess = document.querySelectorAll('.show-less');
 
   for (let i = 0; i < commentButtons.length; i++) {
-    commentButtons[i].addEventListener('click', (event) => {
+    commentButtons[i].addEventListener('click', () => {
       if (commentForms[i].classList.contains('visible')) {
         commentForms[i].classList.remove('visible');
-        comments[i].classList.remove('visible');
+        topComments[i].classList.remove('visible');
       } else {
         commentForms[i].classList.add('visible');
-        comments[i].classList.add('visible');
+        topComments[i].classList.add('visible');
       }
     });
   }
 
-  for (let i = 0; i < commentButtons.length; i++) {
+  for (let i = 0; i < showMore.length; i++) {
+    showMore[i].addEventListener('click', () => {
+      topComments[i].classList.remove('visible');
+      allComments[i].classList.add('visible');
+    });
+  }
+
+  for (let i = 0; i < showLess.length; i++) {
+    showLess[i].addEventListener('click', () => {
+      allComments[i].classList.remove('visible');
+      topComments[i].classList.add('visible');
+    });
+  }
+
+  for (let i = 0; i < commentsCount.length; i++) {
     commentsCount[i].addEventListener('click', (event) => {
       if (commentForms[i].classList.contains('visible')) {
         commentForms[i].classList.remove('visible');
-        comments[i].classList.remove('visible');
+        topComments[i].classList.remove('visible');
       } else {
         commentForms[i].classList.add('visible');
-        comments[i].classList.add('visible');
+        topComments[i].classList.add('visible');
       }
     });
   }
