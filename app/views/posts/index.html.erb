@@ -2,39 +2,94 @@
 <div class="page-grid">
 
   <% @posts.each do |post| %>
+
+          <!-- CARD BODY -->
+
     <div class="card mb-3 mt-4">
+
+          <!-- CARD BODY TOP -->
+
       <div class="card-body top">
+
+          <!-- Avatar -->
+
         <div class ="flex-left-top">
           <div class="grid-image">
             <%= avatar_display(post.user, 40) %>
           </div>
         </div>
+
+          <!-- Username + Date -->
+
         <div class="flex-right-top">
           <p><%= post.user.username %></p>
           <p class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</p>
         </div>
       </div>
+
+          <!-- CARD IMAGE -->
       
       <% if post.image.attached? %>
         <%= image_tag post.image, class: "card-img-top" %>
       <% end %>
-      
+
+          <!-- CARD BODY BOTTOM -->
+
       <div class="card-body bottom">
+
+          <!-- Message -->
+
         <p class="card-text"><%= post.message %></p>
 
         <div class="comment-like-container"> 
-          <div class="flex-likes">
-            <button>
-              <i class="far fa-thumbs-up"></i> Like
-            </button>
-          </div>
+
+          <!-- Like button -->
+
+            <div class="flex-likes">
+              <%= button_to post_likes_path(post), id: "like-button", remote: true do %>
+                <i class="far fa-thumbs-up"></i> Like
+              <% end %> 
+            </div>    
+
+          <!-- Comment button -->
 
           <div class="flex-comments">
-            <button>
-              <i class="far fa-comment-alt"></i> Comments
+            <button id="comment-button">
+              <i class="far fa-comment-alt"></i> Comment
             </button>
           </div>
 
+        </div>
+          
+        <div class="flex-comment-form">
+
+          <!-- Comment form -->
+
+          <%= form_with model: [ post, post.comments.build ], local: false do |form| %>
+            
+            <div class="flex-add-comment">
+
+              <div id="add-comment-field">
+                <%= form.text_field :content, id:"add-comment-box-#{post.id}", placeholder: "Add comment here..." %>
+              
+                <div id="add-comment-button">
+                  <%= form.button '<i class="paper plane icon"></i>'.html_safe, id: "add-comment-button", remote: true do %>
+                    <i class="fas fa-paper-plane"></i>
+                  <% end %> 
+                </div>
+              
+              </div>
+
+              <%= form.hidden_field :user_id, value: current_user.id if logged_in? %>
+
+            </div>
+          <% end %>
+        </div>
+
+        <div class="flex-comment-view">
+          <div class="comment-box" id='comments-<%= post.id %>'>
+            <%= render post.comments.order("created_at": :desc) %>
+          </div>
         </div>
 
             <div id='likes-<%= post.id %>'>
@@ -43,21 +98,6 @@
           
             <div id='comments-count-<%= post.id %>'>
               <%= pluralize(post.comments.count, "comments") %>
-            </div>
-
-
-            <% if logged_in? %>
-              <%= button_to "Like", post_likes_path(post), remote: true %>
-            <% end %>
-          
-            <button id='new-button' type="button">Comment</button>
-            <div class="grid-comments-form">
-              <%= render partial: "comments/form", locals: {post: post} %>
-            </div>
-            <div class="grid-comments-view">
-              <div id='comments-<%= post.id %>'>
-                <%= render post.comments.order("created_at": :desc) %>
-              </div>
             </div>
       </div>
     </div>
