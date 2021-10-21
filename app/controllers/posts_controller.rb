@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :check_login, except: [:index]
   before_action :set_post, only: [:edit, :update, :destroy]
+  before_action :post_owner?, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -18,10 +19,6 @@ class PostsController < ApplicationController
   end
 
   def edit
-    if current_user.id != @post.user.id
-      flash[:alert] = "Stop that! You're not allowed to edit someone else's post..."
-      redirect_to posts_url
-    end
     @submit = "Confirm edit"
   end
 
@@ -59,5 +56,12 @@ class PostsController < ApplicationController
 
   def store_location
     session[:return_to] = request.fullpath
+  end
+
+  def post_owner?
+    if current_user.id != @post.user.id
+      flash[:alert] = "Stop that! You're not allowed to edit someone else's post..."
+      redirect_to posts_url
+    end
   end
 end
