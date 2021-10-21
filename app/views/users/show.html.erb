@@ -1,4 +1,4 @@
-<h1 class='text-center'>Your feed</h1>
+<h1>profile page for <%= @user.username %> </h1>
 
 <% @posts.each do |post| %>
   <div class="card mb-3">
@@ -34,5 +34,8 @@
 </div>
 
 <% end %>
+
+
+<%= render 'posts/newpost' %>
 
 
