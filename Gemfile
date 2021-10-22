@@ -29,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'activestorage-validator'
 gem 'launchy'
 
+# AWS gem
+gem 'aws-sdk-s3', require: false
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
