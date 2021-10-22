@@ -6,7 +6,7 @@ RSpec.feature "Timeline", type: :feature do
     click_link "Add post"
     fill_in "Message", with: "Bob's your uncle!"
     click_button "Add post"
-    click_button "Like"
+    click_button "like-button"
     expect(page).to have_content("1 like")
   end
 
@@ -15,10 +15,10 @@ RSpec.feature "Timeline", type: :feature do
     click_link "Add post"
     fill_in "Message", with: "Bob's your uncle!"
     click_button "Add post"
-    click_button "Like"
+    click_button "like-button"
     logout()
     signup("Dave")
-    click_button "Like"
+    click_button "like-button"
     expect(page).to have_content("2 likes")
   end
 end
