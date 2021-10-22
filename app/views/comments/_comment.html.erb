@@ -1,10 +1,13 @@
 <div class="flex-comment-box">
   <div class="flex-comment-avatar">
     <div class="avatar-sm">
-      <%= avatar_display(comment.user, 26) %>
+      <%= avatar_display(comment.user, 20) %>
     </div>
   </div>
-  <div class="flex-comment-content">
-    <p><%= comment.content %></p>
+  <div class="flex-comment-username">
+    <p><%= comment.user.username %></p>
   </div>
+</div>
+<div class="comment-content">
+  <p><%= comment.content %></p>
 </div>
