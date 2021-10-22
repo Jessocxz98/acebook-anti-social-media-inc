@@ -1,5 +1,7 @@
-<h1>All users</h1>
+<h1 class="text-center mb-4">All users</h1>
 
-  <% @users.each do |user| %>
-    <p><a href="/users/<%= user.id %>"><%= user.username %></a></p>
-  <% end %>
+  <div id="all-users">
+    <% @users.each do |user| %>
+      <p><a href="/users/<%= user.id %>"><%= user.username %></a></p>
+    <% end %>
+  </div>

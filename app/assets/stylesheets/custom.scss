@@ -39,6 +39,7 @@ p {
 
 .container {
   margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .page-grid {
@@ -147,7 +148,7 @@ img.card-img-top {
 
 .card-text {
   font-weight: 300;
-  font-size: 18px;
+  font-size: 16px;
   padding: 0;
   margin: 0;
 }
@@ -317,4 +318,23 @@ button > .fa-comment-alt {
 
 .visible {
   display: block;
+}
+
+.comment-content {
+  color: #5e5e5e;
+}
+
+/* Users Index Page */
+
+#all-users > p a {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+
+#all-users > p a:hover {
+  color: #000;
+}
+
+#all-users > p {
+  text-align: center;
 }
