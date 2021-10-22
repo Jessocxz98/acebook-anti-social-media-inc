@@ -1,9 +1,12 @@
-<h1 class="text-center"><%= @user.username %>'s profile</h1>
+<h1 class="text-center mb-4"><%= @user.username %>'s wall</h1>
+
+<button id="add-post-to-wall" class="btn btn-primary">Add a post on this wall</button>
+
+<div class="container hidden" id="add-post-wall">
+  <%= render 'posts/newpost' %>
+</div>
 
 <%= render 'posts/listing' %>
 
-<div class="container">
-  <%= render 'posts/newpost' %>
-</div>
 
 

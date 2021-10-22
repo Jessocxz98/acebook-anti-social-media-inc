@@ -31,6 +31,17 @@ p {
   background-color: #e1e1e1;
 }
 
+.link-login {
+  background-color: #fff;
+  border: 0;
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.link-login:hover {
+  text-decoration: underline;
+}
+
 /* Card */
 
 .card {
@@ -38,8 +49,14 @@ p {
 }
 
 .container {
-  margin-top: 2em;
+  margin-top: 6em;
   margin-bottom: 2em;
+  max-width: 600px !important;
+}
+
+.container.visible {
+  margin: 0;
+  padding: 0;
 }
 
 .page-grid {
@@ -130,12 +147,14 @@ img.card-img-top {
   align-items: center;
   font-size: 14px;
 }
-.flex-stats-comments a {
+.flex-stats-comments p {
   text-decoration: none;
   color: #707070;
+  margin-bottom: 0;
+  cursor: pointer;
 }
 
-.flex-stats-comments a:hover {
+.flex-stats-comments p:hover {
   color: #707070;
   text-decoration: underline;
 }
@@ -304,6 +323,12 @@ button > .fa-comment-alt {
   opacity: 0.9;
 }
 
+.comment-content {
+  color: #5e5e5e;
+}
+
+/* JS */
+
 .show-more,
 .show-less {
   display: flex;
@@ -320,21 +345,28 @@ button > .fa-comment-alt {
   display: block;
 }
 
-.comment-content {
-  color: #5e5e5e;
-}
-
 /* Users Index Page */
 
-#all-users > p a {
+.list-group-item {
+  display: flex !important;
+  flex-direction: row;
+}
+
+.flex-left-users {
+  display: flex;
+  flex: 1 1 4%;
+}
+
+.flex-right-users {
+  display: flex;
+  flex: 1 1 96%;
+}
+
+.flex-right-users a {
   text-decoration: none;
   color: #4d4d4d;
 }
 
-#all-users > p a:hover {
+.flex-right-users a:hover {
   color: #000;
-}
-
-#all-users > p {
-  text-align: center;
 }

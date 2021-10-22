@@ -1,6 +1,5 @@
 <h1 class="text-center">Log in</h1>
 
-<div class="container-mx-wth-500">
   <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
 
     <div>
@@ -17,8 +16,8 @@
       <%= f.submit "Log in", class: 'btn btn-primary mt-3' %>
     </div>
 
-    <%= link_to "Sign up", new_user_path, class: "link-custom text-center mt-4" %>
   <% end %>
-</div>
+
+<%= button_to "Sign up", new_user_path, class: "link-login text-center mt-4", method: :get %>
 
 
