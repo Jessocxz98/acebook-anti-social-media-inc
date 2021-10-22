@@ -17,22 +17,29 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const commentButtons = document.querySelectorAll('.comment-button');
-  const commentsCount = document.querySelectorAll('.comments-count');
+  const commentsCount = document.querySelectorAll('.flex-stats-comments');
   const commentForms = document.querySelectorAll('.flex-comment-form');
   const comments = document.querySelectorAll('.comment-box');
   const topComments = document.querySelectorAll('.top-comments');
   const allComments = document.querySelectorAll('.all-comments');
   const showMore = document.querySelectorAll('.show-more');
   const showLess = document.querySelectorAll('.show-less');
+  const buttonAddPostWall = document.getElementById('add-post-to-wall');
+  const addPostWall = document.getElementById('add-post-wall')
 
   for (let i = 0; i < commentButtons.length; i++) {
     commentButtons[i].addEventListener('click', () => {
-      if (commentForms[i].classList.contains('visible')) {
+      if (
+        commentForms[i].classList.contains('visible') ||
+        commentsCount[i].classList.contains('visible')
+      ) {
         commentForms[i].classList.remove('visible');
         topComments[i].classList.remove('visible');
+        allComments[i].classList.remove('visible');
       } else {
         commentForms[i].classList.add('visible');
         topComments[i].classList.add('visible');
+        allComments[i].classList.remove('visible');
       }
     });
   }
@@ -53,19 +60,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (let i = 0; i < commentsCount.length; i++) {
     commentsCount[i].addEventListener('click', (event) => {
-      if (commentForms[i].classList.contains('visible')) {
+      if (
+        commentForms[i].classList.contains('visible') ||
+        commentsCount[i].classList.contains('visible')
+      ) {
         commentForms[i].classList.remove('visible');
         topComments[i].classList.remove('visible');
+        allComments[i].classList.remove('visible');
       } else {
         commentForms[i].classList.add('visible');
         topComments[i].classList.add('visible');
+        allComments[i].classList.remove('visible');
       }
     });
   }
-  // .addEventListener('click', () => {
-  //   console.log('good');
-  // document.getElementById(
-  //   `#flex-comment-form-${event.target.id}`
-  // ).custom.display = 'block';
-  // });
+
+  buttonAddPostWall.addEventListener('click', (event) => {
+    event.preventDefault();
+    buttonAddPostWall.style.display = "none";
+    addPostWall.classList.add('visible');
+    addPostWall.classList.remove('hidden');
+  });
 });

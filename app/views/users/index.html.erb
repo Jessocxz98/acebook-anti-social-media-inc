@@ -1,7 +1,16 @@
 <h1 class="text-center mb-4">All users</h1>
 
-  <div id="all-users">
-    <% @users.each do |user| %>
-      <p><a href="/users/<%= user.id %>"><%= user.username %></a></p>
-    <% end %>
-  </div>
+<ul class="list-group">
+  <% @users.reverse.each do |user| %>
+    <li class="list-group-item">
+      <div class="flex-left-users">
+        <div class="avatar-sm">
+          <%= avatar_display(user, 20) %>
+        </div>
+      </div>
+      <div class="flex-right-users">
+        <a href="/users/<%= user.id %>"><%= user.username %></a>
+      </div>
+    </li> 
+  <% end %>
+</ul>

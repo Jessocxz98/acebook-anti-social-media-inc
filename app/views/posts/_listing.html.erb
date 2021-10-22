@@ -62,7 +62,7 @@
           </div>
 
           <div class="flex-stats-comments" id='comments-count-<%= post.id %>'>
-            <%= link_to pluralize(post.comments.count, "comments") %>
+            <p><%= pluralize(post.comments.count, "comment") %></p>
           </div>
         </div>
 
@@ -79,7 +79,7 @@
           <!-- Comment button -->
 
           <div class="flex-comments">
-            <button id="comment-button">
+            <button id="comment-button" class="comment-button">
               <i class="far fa-comment-alt"></i> Comment
             </button>
           </div>
@@ -88,7 +88,7 @@
           
           <!-- Comment form -->
 
-        <div class="flex-comment-form">
+        <div class="flex-comment-form hidden">
 
           <%= form_with model: [ post, post.comments.build ], local: false do |form| %>
             <div class="flex-add-comment">
@@ -113,10 +113,22 @@
 
         <!-- Comment List -->
 
-        <div class="flex-comment-view">
+        <div class="flex-comment-view top-comments hidden", id="top-comments">
+          <div class="comment-box" id='comments-<%= post.id %>'>
+            <%= render post.comments.order("created_at": :desc).limit(3) %>
+          </div>
+            <a class="show-more">
+              Show all comments
+            </a>
+        </div>
+
+        <div class="flex-comment-view all-comments hidden", id="all-comments">
           <div class="comment-box" id='comments-<%= post.id %>'>
             <%= render post.comments.order("created_at": :desc) %>
           </div>
+          <a class="show-less">
+            Show less
+          </a>
         </div>
 
       </div>
